@@ -1,11 +1,17 @@
-.jumbotron {
+h1, .lead,.sublead, #surveyPage {
+    text-align: center;
+    align-items: center;
+}
+#surTag{
+    align-items: center;
     text-align: center;
 }
 
-.well {
-    margin: 20px;
+.refLinks{
+    text-align: center;
+    align-items: center;
+    padding-top: 10px;
 }
-
-.well>* {
-    margin: 25px;
+.directlinks{
+    padding: 0px 10px;
 }

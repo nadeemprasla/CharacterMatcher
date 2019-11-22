@@ -4,7 +4,8 @@ var characters = require('../data/character')
 
 module.exports = function(app) {
     var winner = 0;
-
+    var winningChar;
+    var index;
     app.post("/api/characters", (req, res) => {
         var yourChar = [];
         var ans = req.body
@@ -24,26 +25,31 @@ module.exports = function(app) {
 
         function pointChecker() {
             winner = 0;
+            
             for (var i = 0; i <= yourChar.length; i++) {
                 if (i < yourChar.length) {
                     if (winner < yourChar[i]) {
                         winner = yourChar[i];
-                        console.log("Winning ", yourChar[i]);
+                        console.log("Winning ", yourChar[i])
+                        index = i;
                     }
                 } else {
-                  break;
+                    winningChar = characters[index].name
+                    console.log("index :", characters[index].name)
+                    res.redirect("/api/character/reload")
                 }
-
             }
+
         }
         pointChecker()
-
-
     })
 
-    // app.get("/api/characters/reload", (req, res) => {
-    //     res.render("modal")
-    // })
+    app.get("/api/character/reload", (req, res) => {
+        res.render("modal", {
+            name: winningChar,
+            url: characters[index].photo
+        });
+    })
 
 
 }

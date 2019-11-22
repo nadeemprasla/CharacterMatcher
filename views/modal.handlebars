@@ -1,22 +1,37 @@
-<div class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+<div id="modalHolder" style="margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);"><button type="button" id="modalbtn" class="btn btn-primary" data-toggle="modal"
+        data-target="#myModal">
+        Click to see who you match!!
+    </button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="height=100vh;width:100vh;margin: 0;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, 0%);">
+            <div class="modal-header" >
+                {{!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button> --}}
+                <h4 class="modal-title" id="myModalLabel" style="text-align:center">Your Slightly Perfect Match Is...{{name}}</h4>
+            </div>
+            <div class="modal-body" style= "text-align:center">
+                <img height="500px" width="auto" src="{{url}}" alt="{{name}}">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="modalClose">Close</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <script>
-    $('#myModal').modal(options);
+    var modalCl = document.getElementById("modalClose")
+    modalCl.addEventListener("click", (e) => {
+        window.location = "/"
+    });
 </script>

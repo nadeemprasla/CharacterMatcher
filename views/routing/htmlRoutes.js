@@ -11,7 +11,7 @@ module.exports = function(app) {
         universe: [],
         weakness: []
     };
-    characters.forEach((e) => {
+        characters.forEach((e) => {
         choices["name"].includes(e.name) ? null : choices["name"].push(e.name);
         choices["fear"].includes(e.fear) ? null : choices["fear"].push(e.fear);
         choices["power"].includes(e.power) ? null : choices["power"].push(e.power);
@@ -31,3 +31,4 @@ console.log(choices)
         res.render("index");
     })
 }
+
