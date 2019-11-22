@@ -1,0 +1,21 @@
+<div class="jumbotron">
+    <h1 class="display-4">Hello, world!</h1>
+    <p class="lead">Answer a few questions.</p>
+    <hr class="my-4">
+    <p>To find which character matchs you the most.</p>
+
+    <a class="btn btn-primary btn-lg" id="surveyPage" href="/survey"role="button">Start Survey</a>
+</div>
+
+
+
+<script type="text/javascript">
+    $("#surveyPage").on("click", (event) => {
+        $.ajax("/survey", {
+            type: "GET"
+        }).then((err) => {
+            if (err) console.log("error", err);
+        })
+    });
+
+</script>
